@@ -64,7 +64,7 @@
             <!-- Modal footer -->
             <div class="modal-footer ">
                 <button type="button" class="btn btn-success">Xác nhận</button>
-                {{--                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>--}}
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
             </div>
 
         </div>
@@ -80,8 +80,8 @@
                 type: "LiveStream",
                 target: document.querySelector('#scanner-container'),
                 constraints: {
-                    width: 400,
-                    height: 270,
+                    width: 480,
+                    height: 320,
                     facingMode: "environment"
                 },
             },
@@ -159,10 +159,11 @@
 
     // Start/stop scanner
     $('.btn-scanner').click(function (event) {
-
-            startScanner();
-
+        startScanner();
     })
+    $("#myModal").on("hidden.bs.modal", function () {
+        Quagga.stop();
+    });
 
 </script>
 </body>
