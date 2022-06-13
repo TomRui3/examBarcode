@@ -123,10 +123,13 @@
             // Set flag to is running
             _scannerIsRunning = true;
         });
-        
+
+
+
+
         Quagga.onDetected(function (result) {
             $('input[name=barcode]').val(result.codeResult.code)
-
+            Quagga.stop();
         });
     }
 
