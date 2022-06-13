@@ -143,7 +143,7 @@
             Quagga.offDetected(); 
             Quagga.stop();
             _scannerIsRunning = false;            
-            $('#scanner-container').remove('video', 'canvas');
+             $('#scanner-container').children().not(".btn-scanner").remove();
             $('.btn-scanner').show()
 
         });
@@ -166,7 +166,8 @@
             Quagga.stop();
             _scannerIsRunning = false;
             $('input[name=barcode]').val(null);
-            $('#scanner-container').remove('video', 'canvas');
+            $('#scanner-container').children().not(".btn-scanner").remove();
+            $('.btn-scanner').show();
             $('.btn-scanner').show()
         }
     });
