@@ -18,7 +18,7 @@
 
 <div class="container mt-3">
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Quét BARCODE</button>
+    <button type="button" class="btn btn-primary btn-scanner" data-bs-toggle="modal" data-bs-target="#myModal">Quét BARCODE</button>
 </div>
 
 <!-- The Modal -->
@@ -158,14 +158,10 @@
 
 
     // Start/stop scanner
-    $('#myModal').on('show.bs.modal', function (event) {
-        if (_scannerIsRunning) {
-            Quagga.stop();
-        } else {
-            startScanner();
-        }
+    $('.btn-scanner').click(function (event) {
+            startScanner();        
     })
-    
+
 </script>
 </body>
 </html>
