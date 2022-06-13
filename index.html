@@ -15,13 +15,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
         #scanner-container video, canvas {
-  width: 100%;
-  height: auto;
-}
+          width: 100%;
+          height: 100%;
+        }
 
-#scanner-container video.drawingBuffer, canvas.drawingBuffer {
-  display: none;
-}
+        #scanner-container video.drawingBuffer, canvas.drawingBuffer {
+          display: none;
+        }
     </style>
 </head>
 <body>
@@ -43,8 +43,8 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center" style="width: 430px; height: 280px;">
-                        <div class="camera bg-dark border"  id="scanner-container">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div class="camera bg-dark border"  style="width: 100%; height: 100%;" id="scanner-container">
 
                         </div>
                     </div>
