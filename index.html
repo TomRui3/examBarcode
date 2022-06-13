@@ -139,6 +139,7 @@
 
         Quagga.onDetected(function (result) {
             Quagga.stop();
+            _scannerIsRunning = false;
             $('input[name=barcode]').val(result.codeResult.code);
             $('#scanner-container').empty();
             $('#scanner-container').append(`<button type="button" class="btn btn-outline-warning btn-sm btn-scanner">Quét</button>`);
@@ -149,15 +150,21 @@
 
     // Start/stop scanner
     $('.btn-scanner').on('click', function (event) {
-        $(this).remove();
-        startScanner();
-        _scannerIsRunning = true;
+        if (_scannerIsRunning){
+            $(this).remove();
+            startScanner();
+            _scannerIsRunning = true;
+        }          
+        
     })
     $("#myModal").on("hidden.bs.modal", function () {
-        Quagga.stop();
-        $('input[name=barcode]').val(null);
-        $('#scanner-container').empty();
-        $('#scanner-container').append(`<button type="button" class="btn btn-outline-warning btn-sm btn-scanner">Quét</button>`);
+        if (_scannerIsRunning) {            
+            Quagga.stop();
+            _scannerIsRunning = false;
+            $('input[name=barcode]').val(null);
+            $('#scanner-container').empty();
+            $('#scanner-container').append(`<button type="button" class="btn btn-outline-warning btn-sm btn-scanner">Quét</button>`);
+        }
     });
 
 </script>
