@@ -150,7 +150,7 @@
 
     // Start/stop scanner
     $('.btn-scanner').on('click', function (event) {
-        if (_scannerIsRunning){
+        if (!_scannerIsRunning){
             $(this).remove();
             startScanner();
             _scannerIsRunning = true;
