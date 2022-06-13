@@ -14,11 +14,14 @@
     <!--Jquery 3.0.6 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style>
-        .drawingBuffer
-        {
-            max-width: 100%;
-            max-height: 100%;
-        }
+        #scanner-container video, canvas {
+  width: 100%;
+  height: auto;
+}
+
+#scanner-container video.drawingBuffer, canvas.drawingBuffer {
+  display: none;
+}
     </style>
 </head>
 <body>
@@ -86,11 +89,11 @@
                 name: "Live",
                 type: "LiveStream",
                 target: document.querySelector('#scanner-container'),
-                constraints: {
-//                     width: 430,
-//                     height: 280,
-                    facingMode: "environment"
-                },
+//                 constraints: {
+// //                     width: 430,
+// //                     height: 280,
+//                     facingMode: "environment"
+//                 },
             },
             decoder: {
                 readers: [
