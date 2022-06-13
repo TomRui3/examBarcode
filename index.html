@@ -138,9 +138,11 @@
 
 
         Quagga.onDetected(function (result) {
-            Quagga.stop();
-            _scannerIsRunning = false;
             $('input[name=barcode]').val(result.codeResult.code);
+            Quagga.offProcessed(onProcessed); 
+            Quagga.offDetected(doOnDetected); 
+            Quagga.stop();
+            _scannerIsRunning = false;            
             $('#scanner-container').empty();
             $('#scanner-container').append(`<button type="button" class="btn btn-outline-warning btn-sm btn-scanner">Quét</button>`);
 
@@ -158,7 +160,9 @@
         
     })
     $("#myModal").on("hidden.bs.modal", function () {
-        if (_scannerIsRunning) {            
+        if (_scannerIsRunning) { 
+            Quagga.offProcessed(onProcessed); 
+            Quagga.offDetected(doOnDetected); 
             Quagga.stop();
             _scannerIsRunning = false;
             $('input[name=barcode]').val(null);
