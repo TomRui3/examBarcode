@@ -139,7 +139,7 @@
 
         Quagga.onDetected(function (result) {
             $('input[name=barcode]').val(result.codeResult.code);
-            Quagga.offProcessed(onProcessed); 
+//             Quagga.offProcessed(onProcessed); 
             Quagga.offDetected(doOnDetected); 
             Quagga.stop();
             _scannerIsRunning = false;            
@@ -161,7 +161,7 @@
     })
     $("#myModal").on("hidden.bs.modal", function () {
         if (_scannerIsRunning) { 
-            Quagga.offProcessed(onProcessed); 
+//             Quagga.offProcessed(onProcessed); 
             Quagga.offDetected(doOnDetected); 
             Quagga.stop();
             _scannerIsRunning = false;
