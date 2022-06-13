@@ -154,7 +154,7 @@
     })
     $("#myModal").on("hidden.bs.modal", function () {
         Quagga.stop();
-        $('input[name=barcode]').val(result.codeResult.code);
+        $('input[name=barcode]').val(null);
         $('#scanner-container').empty();
         $('#scanner-container').append(`<button type="button" class="btn btn-light btn-scanner">Quét</button>`);
     });
