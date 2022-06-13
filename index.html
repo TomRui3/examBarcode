@@ -155,6 +155,8 @@
 
     // Start/stop scanner
     $('.btn-scanner').on('click', function (event) {
+        $('input[name=barcode]').val(null);
+        $('input[name=numbatch]').val(null);
         if (!_scannerIsRunning){
             startScanner();
             _scannerIsRunning = true;
